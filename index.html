@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT ASTRYN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Orbitron:wght@400;900&family=Noto+Sans+JP:wght@900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-pink: #ff007f;
+            --cyber-blue: #00f3ff;
+            --dark-city: #050505;
+        }
+
+        body {
+            background-color: var(--dark-city);
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .mega-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                linear-gradient(to bottom, rgba(5,5,5,0.8), rgba(255,0,127,0.1)),
+                url('https://media.discordapp.net/attachments/1469463194941526148/1469463914877157621/Screenshot_2026-02-06_173926.png?ex=6988692a&is=698717aa&hm=ba632f1f2c2b4c476152126b130bdaf9d77e678a4a131d2ba9b798cbd866da1d&=&format=webp&quality=lossless&width=937&height=322'); 
+            background-size: cover;
+            background-position: center;
+            filter: saturate(1.5) brightness(0.6);
+        }
+
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.5) 51%);
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.1;
+        }
+
+        .fortnite-font {
+            font-family: 'Luckiest Guy', cursive;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .kanji-bg {
+            font-family: 'Noto Sans JP', sans-serif;
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.03;
+            color: var(--neon-pink);
+            z-index: -1;
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        .neon-border {
+            border: 2px solid var(--neon-pink);
+            box-shadow: 0 0 15px var(--neon-pink), inset 0 0 10px var(--neon-pink);
+        }
+
+        .neon-text {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink);
+        }
+
+        .cyber-card {
+            background: rgba(10, 10, 10, 0.8);
+            border-left: 5px solid var(--neon-pink);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 95% 100%, 0 100%);
+            transition: 0.3s ease;
+        }
+
+        .cyber-card:hover {
+            transform: scale(1.02);
+            background: rgba(20, 20, 20, 0.9);
+            border-left: 5px solid var(--cyber-blue);
+        }
+
+        .donation-tier {
+            background: linear-gradient(135deg, rgba(255, 0, 127, 0.1) 0%, rgba(10, 10, 10, 0.9) 100%);
+            border: 1px solid rgba(255, 0, 127, 0.3);
+            border-radius: 15px;
+            transition: 0.4s;
+        }
+
+        .donation-tier:hover {
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 25px rgba(255, 0, 127, 0.4);
+            transform: translateY(-5px);
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        .glitch-hover:hover {
+            animation: glitch 0.2s infinite;
+        }
+
+        .main-logo {
+            width: 250px;
+            height: auto;
+            margin: 0 auto;
+            filter: drop-shadow(0 0 15px var(--neon-pink));
+        }
+
+        .nav-logo {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 5px var(--neon-pink));
+        }
+
+        .btn-download {
+            background: var(--neon-pink);
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-download:hover {
+            background: #ff3399;
+            box-shadow: 0 0 30px var(--neon-pink);
+            transform: translateY(-3px) skewX(-5deg);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mega-bg"></div>
+    <div class="scanlines"></div>
+    <div class="kanji-bg" style="top: 10%; left: -5%;">ネオトウキョウ</div>
+    <div class="kanji-bg" style="bottom: 10%; right: -5%;">アストリン</div>
+
+    <nav class="p-6 flex justify-between items-center max-w-7xl mx-auto">
+        <div class="flex items-center gap-3">
+            <img src="https://i.imgur.com/tEeszqC.png" alt="ASTRYN Nav Logo" class="nav-logo">
+            <h1 class="fortnite-font text-2xl tracking-tighter">ASTRYN</h1>
+        </div>
+        <div class="hidden md:flex space-x-8 text-xs font-bold tracking-[0.3em]">
+            <a href="#" class="hover:text-pink-500 transition">SYSTEM</a>
+            <a href="#donations" class="hover:text-pink-500 transition">DONATIONS</a>
+            <a href="https://discord.gg/fhSgSdQYnG" target="_blank" class="neon-text">DISCORD</a>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 pt-10 pb-32 text-center relative">
+        <div class="inline-block mb-8 px-4 py-1 border border-pink-500/30 bg-pink-500/10 text-[10px] uppercase tracking-[0.5em] text-pink-400">
+            PLAY NOW!
+        </div>
+
+        <div class="glitch-hover cursor-pointer mb-2">
+            <img src="https://i.imgur.com/tEeszqC.png" alt="ASTRYN Logo" class="main-logo">
+        </div>
+
+        <h2 class="fortnite-font text-7xl md:text-9xl mb-2 glitch-hover italic">
+            PROJECT <span class="text-pink-500 drop-shadow-[0_0_20px_rgba(255,0,127,0.8)]">ASTRYN</span>
+        </h2>
+        
+        <p class="font-bold text-cyber-blue italic tracking-widest mb-12 uppercase text-sm">
+            // Project Astryn // Best OGFN Project🔥🔥🔥
+        </p>
+
+        <div class="max-w-xl mx-auto mb-24">
+            <a href="https://discord.gg/fhSgSdQYnG" target="_blank" 
+               class="btn-download inline-block px-12 py-6 text-black font-black text-xl uppercase italic group">
+               Download From Our Discord Server!
+               <span class="block text-[10px] tracking-[0.2em] mt-1 opacity-70">Check #Downloads for the build and launcher.</span>
+            </a>
+        </div>
+
+        <section id="donations" class="mb-32">
+            <h2 class="fortnite-font text-5xl mb-12 italic text-pink-500 drop-shadow-[0_0_10px_rgba(255,0,127,0.5)]">DONATION TIERS</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                
+                <div class="donation-tier p-8">
+                    <div class="text-cyber-blue text-sm font-black mb-2 tracking-widest">$5 OR 2 BOOSTS FOR THE DISCORD SERVER</div>
+                    <h3 class="fortnite-font text-2xl mb-4 text-white">OG DONATOR</h3>
+                    <p class="text-xs text-gray-400 uppercase leading-relaxed mb-6">Grants you OG Fortnite Cosmetics, and items</p>
+                    <a href="https://discord.gg/fhSgSdQYnG" target="_blank" class="text-[10px] font-bold text-pink-500 border border-pink-500 px-4 py-2 hover:bg-pink-500 hover:text-black transition">DONATE VIA DISCORD</a>
+                </div>
+
+                <div class="donation-tier p-8 border-pink-500 shadow-[0_0_20px_rgba(255,0,127,0.2)]">
+                    <div class="text-cyber-blue text-sm font-black mb-2 tracking-widest">$10 OR 3 BOOSTS FOR THE DISCORD SERVER</div>
+                    <h3 class="fortnite-font text-2xl mb-4 text-white">SWEATY DONATOR</h3>
+                    <p class="text-xs text-gray-400 uppercase leading-relaxed mb-6">Grants you sweaty skins, 1 username change per week</p>
+                    <a href="https://discord.gg/fhSgSdQYnG" target="_blank" class="text-[10px] font-bold text-pink-500 border border-pink-500 px-4 py-2 hover:bg-pink-500 hover:text-black transition">DONATE VIA DISCORD</a>
+                </div>
+
+                <div class="donation-tier p-8">
+                    <div class="text-cyber-blue text-sm font-black mb-2 tracking-widest">$15 OR 5 BOOSTS FOR THE DISCORD SERVER</div>
+                    <h3 class="fortnite-font text-2xl mb-4 text-white">FULL LOCKER</h3>
+                    <p class="text-xs text-gray-400 uppercase leading-relaxed mb-6">Grants you full locker, unlimited username changes</p>
+                    <a href="https://discord.gg/fhSgSdQYnG" target="_blank" class="text-[10px] font-bold text-pink-500 border border-pink-500 px-4 py-2 hover:bg-pink-500 hover:text-black transition">DONATE VIA DISCORD</a>
+                </div>
+
+            </div>
+        </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+            <div class="cyber-card p-8">
+                <div class="text-pink-500 text-xs font-black mb-4 tracking-widest underline">01.  OG</div>
+                <h3 class="fortnite-font text-xl mb-2"> 🔥Relive 2023 In the best way!</h3>
+                <p class="text-xs text-gray-400 leading-relaxed uppercase">OG Movement OG weapons OG map OG EVERYTHING WHAT MORE CAN YOU ASK FOR?</p>
+            </div>
+
+            <div class="cyber-card p-8">
+                <div class="text-pink-500 text-xs font-black mb-4 tracking-widest underline">02. Aesthetic</div>
+                <h3 class="fortnite-font text-xl mb-2">👌Neon Aesthetic</h3>
+                <p class="text-xs text-gray-400 leading-relaxed uppercase">Japanese Look!.</p>
+            </div>
+
+            <div class="cyber-card p-8">
+                <div class="text-pink-500 text-xs font-black mb-4 tracking-widest underline">03. Community</div>
+                <h3 class="fortnite-font text-xl mb-2">🌐Community</h3>
+                <p class="text-xs text-gray-400 leading-relaxed uppercase">Active 24/7 Servers/Non-toxic Community.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-12 border-t border-pink-500/10 text-center">
+        <div class="flex justify-center gap-12 mb-8 opacity-30 text-[10px] font-black tracking-widest">
+            <span>STABLE</span>
+            <span>V 4.2.0</span>
+            <span>GLOBAL</span>
+        </div>
+        <p class="text-[9px] text-gray-600 uppercase tracking-[0.4em]">
+            Project Astryn is not affiliated with Epic Games. <br>
+            &copy; 2026 PROJECT ASTRYN TEAM
+        </p>
+    </footer>
+
+</body>
+</html>
